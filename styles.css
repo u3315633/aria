@@ -211,14 +211,11 @@ body:not(.fonts-ready) #screenQuestion{
 
   clip-path: inset(0 100% 0 0);
 
-  /* cursor only while typing */
-  border-right: 2px solid rgba(255,255,255,.55);
+  /* ✅ no cursor */
+  border-right: none;
 
-  animation:
-    marioReveal var(--typeDur, 1.2s) steps(var(--chars, 40)) forwards,
-    caretBlink 700ms steps(1) infinite;
-
-  /* ✅ once reveal ends, remove the cursor */
+  /* ✅ keep the same sentence reveal */
+  animation: marioReveal var(--typeDur, 1.2s) steps(var(--chars, 40)) forwards;
   animation-fill-mode: forwards;
 }
 
@@ -232,11 +229,6 @@ body:not(.fonts-ready) #screenQuestion{
 @keyframes marioReveal{
   from { clip-path: inset(0 100% 0 0); }
   to   { clip-path: inset(0 0% 0 0); }
-}
-
-@keyframes caretBlink{
-  0%, 49% { border-right-color: rgba(255,255,255,.55); }
-  50%, 100% { border-right-color: transparent; }
 }
 
 .tiny{
@@ -643,3 +635,4 @@ body.mode-login .hearts{
   }
 
 }
+
