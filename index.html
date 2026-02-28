@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Special Access Pass</title>
+
+  <!-- Mario-style pixel font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="mode-login">
+  <!-- Transition overlay (used when switching from Win95 -> Romantic) -->
+  <div class="theme-transition" id="themeTransition" aria-hidden="true"></div>
+
+  <!-- Romantic background elements (hidden on login via CSS) -->
+  <div class="bg-hearts" aria-hidden="true"></div>
+  <div class="hearts" id="hearts" aria-hidden="true"></div>
+
+  <!-- SCREEN 1: WIN95 LOGIN -->
+  <main class="screen screen--active" id="screenLogin">
+    <div class="login95-wrap">
+      <div class="win95-window" id="win95Window" role="dialog" aria-label="Login window">
+        <div class="win95-titlebar">
+          <span class="win95-title">Log On</span>
+          <div class="win95-controls" aria-hidden="true">
+            <span class="win95-box">_</span>
+            <span class="win95-box">□</span>
+            <span class="win95-box">×</span>
+          </div>
+        </div>
+
+        <div class="win95-body">
+          <div class="win95-row">
+            <div class="win95-icon" aria-hidden="true"></div>
+            <div class="win95-text">
+              <div class="win95-heading">Welcome.</div>
+              <div class="win95-sub">Enter your username and password to continue.</div>
+            </div>
+          </div>
+
+          <div class="win95-form">
+            <label class="win95-field">
+              <span class="win95-label">User name:</span>
+              <input id="username" class="win95-input" type="text" inputmode="text" />
+            </label>
+
+            <label class="win95-field">
+              <span class="win95-label">Password:</span>
+              <input id="password" class="win95-input" type="password" />
+            </label>
+
+            <div class="win95-error" id="loginError" role="alert" aria-live="polite"></div>
+
+            <div class="win95-actions">
+              <button class="win95-btn" id="startBtn" type="button">Start</button>
+            </div>
+          </div>
+
+          <!-- Tip removed as requested -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- SCREEN 2: POEM -->
+  <main class="screen" id="screenPoem">
+    <div class="wrap">
+      <!-- Removed "One small poem…" pill -->
+
+      <div class="panel panel--themed" id="poemPanel">
+        <h1 class="title title--poem">
+          I might not be a poet, but this one is for you:
+        </h1>
+        <!-- Removed "Each tap shows the next line." -->
+
+        <div class="poem poem--mario" id="poemBox" aria-label="Poem"></div>
+
+        <button class="btn btn--primary" id="poemNextBtn" type="button">
+          Next
+        </button>
+
+        <p class="tiny">You can also tap on this panel to continue</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- SCREEN 3: QUESTION -->
+  <main class="screen" id="screenQuestion">
+    <div class="wrap">
+      <!-- Removed "Final question" pill -->
+      <h1 class="headline">
+        <span class="name" id="herNameInline">____</span>, will you be mine?
+      </h1>
+
+      <!-- Removed "Choose carefully..." -->
+
+      <section class="choices" aria-label="Answer choices">
+        <label class="choice">
+          <input type="checkbox" id="opt1" />
+          <div class="label">Yes!</div>
+          <div class="hint">💓</div>
+        </label>
+
+        <label class="choice">
+          <input type="checkbox" id="opt2" />
+          <div class="label">Heck Yes!</div>
+          <div class="hint">💞</div>
+        </label>
+      </section>
+
+      <p class="note" id="note">Pick one 💘</p>
+    </div>
+  </main>
+
+  <!-- SCREEN 4: ACCESS PASS -->
+  <main class="screen" id="screenPass">
+    <div class="wrap">
+      <div class="pill">✨ Membership Activated</div>
+
+      <section class="card" id="card" aria-label="Special Access Pass">
+        <div class="card-top">
+          <div class="badge"><span class="sparkle">💖</span> Special Access Pass</div>
+          <div class="serial" id="serial">PASS-ID: UR2CUTE-00000000</div>
+        </div>
+
+        <div class="card-body">
+          <h2>Issued To</h2>
+          <div class="big-name" id="herNameCard">Aria Fernandes</div>
+
+          <div class="row">
+            <div class="field">
+              <div class="k">Status</div>
+              <div class="v">Girlfriend</div>
+            </div>
+            <div class="field">
+              <div class="k">Access</div>
+              <div class="v">Unlimited</div>
+            </div>
+          </div>
+
+          <div class="benefits">
+            Please use this card to avail exclusive benefits.*
+          </div>
+
+          <div class="terms">
+            <b>*Terms & Conditions:</b><br/>
+            • This pass is limited to only 1 user in the whole world and cannot be refunded or transferred.<br/>
+            • Validity must be renewed on a day-to-day basis in exchange for "supplies."<br/>
+            • In case of any discrepancies, the decision of the access provider will be considered final.
+          </div>
+
+          <div class="footer">
+            <div id="issuedOn">Issued: 28th February 2026</div>
+            <!-- Removed Validity: Forever -->
+          </div>
+        </div>
+      </section>
+
+      <p class="tiny tiny--save">Please take a screen shot to save this pass.</p>
+      <button class="btn btn--ghost" id="restartBtn" type="button">Restart</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
