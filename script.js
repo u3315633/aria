@@ -195,7 +195,7 @@ function addPoemLine(text) {
 
   // Slower typing
   const chars = Math.max(12, Math.min(140, text.length));
-  const dur = Math.max(2.0, Math.min(5.2, chars * 0.07));
+  const dur = Math.max(2.0, Math.min(5.2, chars * 0.056));
 
   line.style.setProperty("--chars", String(chars));
   line.style.setProperty("--typeDur", `${dur}s`);
@@ -319,3 +319,4 @@ restartBtn?.addEventListener("click", () => {
   if (hearts) hearts.innerHTML = "";
 
 });
+
