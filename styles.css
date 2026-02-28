@@ -191,8 +191,8 @@ body:not(.fonts-ready) #screenQuestion{
 ========================= */
 .poem--mario{
   font-family: "Press Start 2P", ui-monospace, Menlo, Consolas, monospace;
-  font-size: clamp(9px, 2.3vw, 12px);   /* ✅ smaller + responsive */
-  line-height: 1.95;
+  font-size: clamp(8px, 2.0vw, 11px);   /* ✅ smaller + responsive */
+  line-height: 1.80;
   letter-spacing: .02em;
   overflow-wrap: anywhere;              /* ✅ wrap long words safely */
   word-break: break-word;
@@ -409,7 +409,7 @@ body:not(.fonts-ready) #screenQuestion{
   .footer{ flex-direction:column; align-items:flex-start; }
 
   /* ✅ extra-safe mario font on small screens */
-  .poem--mario{ font-size: clamp(8px, 2.9vw, 11px); }
+  .poem--mario{ font-size: clamp(7px, 2.6vw, 10px); }
 }
 
 /* Reduced motion */
@@ -641,4 +641,5 @@ body.mode-login .hearts{
     clip-path: circle(160% at var(--cx, 50vw) var(--cy, 50vh));
     transform: scale(1.02);
   }
+
 }
