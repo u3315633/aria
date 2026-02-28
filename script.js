@@ -172,8 +172,8 @@ const poemPanel = $("poemPanel");
 
 const poemLines = [
   "Roses🌹 are red, Violets💙 are blue.",
-  "But I couldn’t care less about either of the two.",
-  "Of all the things in this beautiful world,",
+  "But I couldn’t really care less about either of the two.",
+  "For among all the things in this beautiful world,",
   "I believe you are most fine ✨",
   "And all I wish to ask you is...."
 ];
@@ -317,4 +317,5 @@ restartBtn?.addEventListener("click", () => {
   if (heartInterval) clearInterval(heartInterval);
   heartInterval = null;
   if (hearts) hearts.innerHTML = "";
+
 });
