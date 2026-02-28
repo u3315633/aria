@@ -191,10 +191,10 @@ body:not(.fonts-ready) #screenQuestion{
 ========================= */
 .poem--mario{
   font-family: "Press Start 2P", ui-monospace, Menlo, Consolas, monospace;
-  font-size: clamp(8px, 2.0vw, 11px);   /* ✅ smaller + responsive */
-  line-height: 1.80;
-  letter-spacing: .02em;
-  overflow-wrap: anywhere;              /* ✅ wrap long words safely */
+  font-size: clamp(8px, 2.0vw, 11px);
+  line-height: 1.75;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
   word-break: break-word;
 }
 
@@ -207,16 +207,7 @@ body:not(.fonts-ready) #screenQuestion{
 .poem-line.mario{
   display:block;
   white-space: normal;
-  overflow: hidden;
-
-  clip-path: inset(0 100% 0 0);
-
-  /* ✅ no cursor */
-  border-right: none;
-
-  /* ✅ keep the same sentence reveal */
-  animation: marioReveal var(--typeDur, 1.2s) steps(var(--chars, 40)) forwards;
-  animation-fill-mode: forwards;
+  overflow: visible;
 }
 
 /* ✅ class added by JS when typing is finished */
@@ -224,11 +215,6 @@ body:not(.fonts-ready) #screenQuestion{
   border-right: none;
   animation: none;
   clip-path: inset(0 0% 0 0);
-}
-
-@keyframes marioReveal{
-  from { clip-path: inset(0 100% 0 0); }
-  to   { clip-path: inset(0 0% 0 0); }
 }
 
 .tiny{
@@ -633,6 +619,4 @@ body.mode-login .hearts{
     clip-path: circle(160% at var(--cx, 50vw) var(--cy, 50vh));
     transform: scale(1.02);
   }
-
 }
-
