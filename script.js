@@ -191,19 +191,24 @@ function addPoemLine(text) {
 
   const line = document.createElement("div");
   line.className = "poem-line mario";
-  line.textContent = text;
-
-  // Slower typing
-  const chars = Math.max(12, Math.min(140, text.length));
-  const dur = Math.max(2.0, Math.min(5.2, chars * 0.056));
-
-  line.style.setProperty("--chars", String(chars));
-  line.style.setProperty("--typeDur", `${dur}s`);
-
   poemBox.appendChild(line);
 
-  // remove cursor after typing ends
-  setTimeout(() => line.classList.add("done"), (dur * 1000) + 80);
+  // speed control (keeps your current timing logic)
+  const chars = Math.max(12, Math.min(160, text.length));
+  const dur = Math.max(2.0, Math.min(5.2, chars * 0.07)); // your current baseline
+  const totalMs = dur * 1000;
+
+  let i = 0;
+  const stepMs = Math.max(18, totalMs / Math.max(1, text.length)); // per-character delay
+
+  const timer = setInterval(() => {
+    i++;
+    line.textContent = text.slice(0, i);
+
+    if (i >= text.length) {
+      clearInterval(timer);
+    }
+  }, stepMs);
 }
 
 async function nextPoem() {
@@ -317,6 +322,4 @@ restartBtn?.addEventListener("click", () => {
   if (heartInterval) clearInterval(heartInterval);
   heartInterval = null;
   if (hearts) hearts.innerHTML = "";
-
 });
-
